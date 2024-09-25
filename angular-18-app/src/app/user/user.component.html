@@ -1,0 +1,21 @@
+<section>
+    @if (isLoggedIn) {
+        <p>Bienvenido {{username}}</p>
+        <img 
+            (click)="greet()"
+            alt="photo"
+            src="https://github.com/midudev.png" />
+    } @else {
+        <p>Inicia sesión</p>
+        <button (click)="isLoggedIn = true">Login</button>
+    }
+    <app-games 
+        username="{{username}}"
+        (addFavouriteEvent)="getFavourite($event)"
+        ></app-games>
+
+    @if (favGame !== '') {
+        <p>Tu juego favorito es {{favGame}}</p>
+    }
+</section>
+
